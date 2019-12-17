@@ -15,12 +15,12 @@
 		}
 		h1{
 			text-align: left;
-			margin-top: -1%;
-			margin-left: 15%;
+			margin-top: 0%;
+			margin-left: 10%;
 		}
 		img{
-			width: 70px;
-			height: 50px;
+			width: 60px;
+			height: 40px;
 		}
 		 .left-box{
                 background: #DAF7A6;
@@ -46,7 +46,7 @@
         	color:black;
         }
         p{
-        	font-size: 20px;
+        	font-size: 0px;
         }
          button
 		{
@@ -61,11 +61,43 @@
 		}
 		.box{
 			background-color: white;
-			width: 100px;
-			height: 50px;	
+			width: 80px;
+			height: 40px;	
 			border-radius: 15px;
 			float: left;
 			margin-top: 0%;
+		}
+		#validation {
+		  display:none;
+		  background: rgba(0,0,0,0);
+		  color: #000;
+		  position: relative;
+		  padding: 10px;
+		  margin-top: -140px;
+		  left: -200px;
+		}
+
+		#validation li {
+		  padding: 10px 30px;
+		  font-size: 18px;
+		}
+
+		.valid {
+		  color: green;
+		}
+
+		.valid:before {
+		  position: relative;
+		  left: -30px;
+		}
+
+		.invalid {
+		  color: red;
+		}
+
+		.invalid:before {
+		  position: relative;
+		  left: -30px;
 		}
 	</style>
 </head>
@@ -76,15 +108,75 @@
 	<div class="left-box"> 
 	<form>
 	<center>
-		<h1>CREATE ACCOUNT</h1><br><br><br>
-		<img src="facebook.png" width="2%">
-		<img src="search.png" width="2%">
-		<p>Atau bergabung dengan email : </p><br><br><br>
-		<input type="text" name="Nama" placeholder="Nama"><br><br>
-		<input type="text" name="Email" placeholder="Email"><br><br>
-		<input type="number" name="No.Telp" placeholder="No.Telp"><br><br>
-		<input type="password" name="password" placeholder="Password"><br><br><br><br><br><br>
+		<h1>CREATE ACCOUNT</h1><br><br>
+		<input type="email" id="usrname" placeholder="Email address" required><br><br>
+     	 <input type="text" placeholder="First Name"><br><br>
+     	 <input type="text" placeholder="Last Name"><br><br>
+     	 <input type="password" id="password" placeholder="Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password harus menggunakan huruf kapital, huruf kecil, angka, and lebih dari 8 karakter" required><br><br>
+     	 <input type="password" id="password" placeholder="Verifikasi Password" required><br><br>
+     	 <input align="Right" type="checkbox" onclick="tampilkanpsw()"><i>Tampilkan Password</i><br><br>
+    </form>
 		<a href="Beranda1.html"><button type="button">Sign Up</button></a>
 	</center>
+    <ol type="none" id="validation">
+      <li id="letter" class="invalid">Huruf kecil</li>
+      <li id="capital" class="invalid">Huruf besar</li>
+      <li id="number" class="invalid">Angka</li>
+      <li id="length" class="invalid">8 karakter</li>
+    </ul>
+
+ <script>
+var myInput = document.getElementById("password");
+var letter = document.getElementById("letter");
+var capital = document.getElementById("capital");
+var number = document.getElementById("number");
+var length = document.getElementById("length");
+
+myInput.onfocus = function() {
+  document.getElementById("validation").style.display = "block";
+}
+
+myInput.onblur = function() {
+  document.getElementById("validation").style.display = "none";
+}
+
+myInput.onkeyup = function() {
+  var lowerCaseLetters = /[a-z]/g;
+  if(myInput.value.match(lowerCaseLetters)) {
+    letter.classList.remove("invalid");
+    letter.classList.add("valid");
+  } else {
+    letter.classList.remove("valid");
+    letter.classList.add("invalid");
+  }
+
+  var upperCaseLetters = /[A-Z]/g;
+  if(myInput.value.match(upperCaseLetters)) {
+    capital.classList.remove("invalid");
+    capital.classList.add("valid");
+  } else {
+    capital.classList.remove("valid");
+    capital.classList.add("invalid");
+  }
+
+  var numbers = /[0-9]/g;
+  if(myInput.value.match(numbers)) {
+    number.classList.remove("invalid");
+    number.classList.add("valid");
+  } else {
+    number.classList.remove("valid");
+    number.classList.add("invalid");
+  }
+
+  if(myInput.value.length >= 8) {
+    length.classList.remove("invalid");
+    length.classList.add("valid");
+  } else {
+    length.classList.remove("valid");
+    length.classList.add("invalid");
+  }
+}
+    </script>
+
 </body>
 </html>

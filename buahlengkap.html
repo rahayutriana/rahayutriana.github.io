@@ -11,8 +11,8 @@
 		}
 		h1{
 			text-align: left;
-			margin-top: 2%;
-			margin-left: 15%;
+			margin-top: 0%;
+			margin-left: 10%;
 		}
 		img{
 			width: 60px;
@@ -98,19 +98,54 @@
 			  margin-top: 0%;
 			  margin-left: -45%;
 			}
+	@media screen and (max-width: 960px){
+		input.tambahproduk{
+			width: 20%;
+			height: 6%;
+		}
+		nav{
+			margin-left: 250%;
+		}
+		.cari{
+			width: 90%;
+			margin: 25px auto;
+		}
+		nav ul {
+			float: inherit;
+		}
+		nav li {
+			float:inherit;
+			margin:0;
+		}
+		nav ul li {
+			float:inherit;
+			margin:0;
+		}
+		.box{
+			margin-top: -13%;
+			margin-left: 3%;
+		}
+		nav ul a{
+			padding: 15px;
+			
+		}
+		
+		/*input{
+			width: 50%;
+			margin-left: 1%;
+		}*/
+	} 
 	</style>
 </head>
 <div>
 	<nav>
 		<ul>
-			<li><a href="profil.html">Profil</li>
+			<div class="cari">
+				<input type="text" name="Cari" placeholder="Cari">
+			</div>
 			<li><a href="beranda.html">Beranda</li>
-			<li><a href="news.html">News</li>
 			<li><a href="produk.html">Produk</li>
-			<li><a href="chat.html">Chat</li>
-			<li><a href="about.html">About</li>
-			<li><a href="#"><img src="b.png" width="50%"></li>
-			<li><a href="#"><img src="a.png"></li>
+			<li><a href="about.html">Tentang</li>
 		</ul>
 	</nav>
 </div>

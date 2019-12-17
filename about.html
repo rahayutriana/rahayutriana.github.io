@@ -4,7 +4,7 @@
 	<title>About</title>
 	<style>
 		body{
-			background-image: url(bg.jpg);
+			background-color: #95e8a0; 
 			background-repeat: no-repeat;
 			background-size: cover;
 			text-align: center;
@@ -39,20 +39,20 @@
 			margin-left: 5%;
 		}
 		nav ul{
-      float: right;
-      display: flex;
-      list-style-type: none;
-      text-align: center;
-      margin-right: 0%;
-    }
-    nav a{
-      color: white;
-      padding: 2px 2px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
+	      float: right;
+	      display: flex;
+	      list-style-type: none;
+	      text-align: center;
+	      margin-right: 0%;
+	    }
+	    nav a{
+	      color: white;
+	      padding: 2px 2px;
+	      text-decoration: none;
+	      font-weight: bold;
+	      font-size: 20px;
 
-    }
+   		}
 		a{
 			text-decoration: none;
 		}
@@ -71,6 +71,21 @@
 		font-size: 28px;
 		text-align: center;
 		}
+		h2{
+		    color: #ffffff;
+		    font-family: monospace;
+		    font-size: 35px;
+		 	margin-top: -50px;
+		}
+		img.tentang-lokasi {
+		    width: 15%;
+		    height: 15%;
+		    margin-left: -50px;
+		}
+		p.tentang-lokasi {
+	    margin-left: 1px;
+	    color: #fefefe;
+		}
 		.medsos{
 			margin-left: -400px;
 			margin-top: 50px;
@@ -84,7 +99,7 @@
 			margin-top: -1%;	
 		}
 		 .left-box{
-                background: #DAF7A6;
+                background: #95e8a0;
                 margin-left: 1000px;
                 position: absolute;
                 font-size: 10px;
@@ -110,14 +125,12 @@
 <div>
   <nav>
     <ul>
-      <li><a href="profil.html">Profil</li>
+    	<div class="cari">
+				<input type="text" name="Cari" placeholder="Cari">
+		</div>
       <li><a href="beranda.html">Beranda</li>
-      <li><a href="news.html">News</li>
       <li><a href="produk.html">Produk</li>
-      <li><a href="chat.html">Chat</li>
-      <li><a href="about.html">About</li>
-      <li><a href="#"><img src="b.png" width="50px" height="50px"></li>
-      <li><a href="#"><img src="a.png" width="50px" height="50px"></li>
+      <li><a href="about.html">Tentang</li>
     </ul>
   </nav>
 </div>
@@ -125,15 +138,21 @@
 	<div class="box">
 		<h1><img src="logo.png"></h1>
 	</div>
-	<div class="left-box"> 
+	<div class="left-box">
+		<h2 class="tentang">INFORMASI KONTAK</h2>
+        <img class="tentang-lokasi" src="lokasi.png" alt="" title="Kunjungi tempat kami">
+        <p class="tentang-lokasi">JL.Mastrip Timur No.85, Sumbersari</p>
+        <p class="tentang-lokasi">Kabupaten Jember 68121</p>
+        <p class="tentang-lokasi">Jawa Timur, Indonesia</p>
+        <img class="tentang" src="img/call-answer.png" alt="" title="Hubungi kontak kami">
+        <p class="tentang">085215269015</p>
+        <img class="tentang" src="img/facebook (2).png" alt="" title="Kunjungi Kami lewat Facebook">
+        <a class="tentang" href="#"><p class="tentang">OneTecht Indonesia Official</p></a>
+        <img class="tentang" src="img/envelope.png" alt="" title="Kunjugi kami lewat E-mail">
+        <a class="tentang" href="#"><p class="tentang">Onetechstore@gmail.com</p></a>
 	<form>
 	<center>
-	<p>
-	VEGAN merupakan aplikasi jual buah dan sayur.
- 	Adanya aplikasi ini untuk mempermudah
- 	para pembeli dalam membeli buah dan sayur
- 	dan penjual dalam memasarkan buah dan sayur miliknya.
-	</p>
+	
 	<ul type="none" class="medsos">
 		<li>
 			<img src="facebook.png">	Belanja.com
