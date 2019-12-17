@@ -71,14 +71,12 @@
 <div>
   <nav>
     <ul>
-      <li><a href="profil.html">Profil</li>
+      <div class="cari">
+        <input type="text" name="Cari" placeholder="Cari">
+      </div>
       <li><a href="beranda.html">Beranda</li>
-      <li><a href="news.html">News</li>
       <li><a href="produk.html">Produk</li>
-      <li><a href="chat.html">Chat</li>
-      <li><a href="about.html">About</li>
-      <li><a href="#"><img src="b.png" width="50%"></li>
-      <li><a href="#"><img src="a.png"></li>
+      <li><a href="about.html">Tentang</li>
     </ul>
   </nav>
 </div>
@@ -89,22 +87,60 @@
   <form class="register" align="center">
       <h2>TAMBAH PRODUK</h2>
       <h3>Tambahkan Produk</h3>
+        <div class="upload">
+          <img src="#" id="preview" style="width:250px;height:150px;margin: 0px auto;"></p>
+          <input type="file" id="img" accept="image/*" style="margin: 0px auto;">
+          <div id="info"></div>
+        </div>
       <input type="text" placeholder="Nama Produk"><br><br>
       <input type="text" placeholder="Jenis Produk"><br><br>
       <input type="text" placeholder="Harga Produk"><br><br>
       <input type="text" placeholder="Jumlah Produk"><br><br>
-      <!-- <input type="text" width= "50%"placeholder="Deskripsi Produk"><br><br> -->
-      <!-- <input type="text" placeholder="Keterangan Lainnya"><br><br> -->
-      
       <textarea placeholder="Deskripsi Produk" name="deskripsi" rows="7" cols=26.5></textarea><br><br>
     </div>
-      <form class="daftarin" action="index.html" method="post">
-        <input class= "daftarin" type="submit" name="Login" value="SIMPAN"><br><br>
-        <a href="produk.html">Batal</a>
+    <input class= "daftarin" type="submit" name="Login" value="SIMPAN"><a href="produk.html"></a>Batal<br><br>
       </form>
     </form>
   </div>
   <center>
   <br>
 </body>
+<script src="jquary.js"></script>
+<script type="text/javascript">
+$.fn.uploadGambar = function () { //extending jquery
+  this.change(function(event) {
+    if(this.files.length > 0){
+      console.log(this.files[0]);
+      var name = this.files[0].name;
+      var size = this.files[0].size;
+      var ukuran = "";
+      if (size >= 1000000 ) { //MB
+        size = Math.ceil(size/1000000);
+        ukuran = size + "MB";
+      }
+      else if (size >= 1000) { //KB
+        size = Math.ceil(size/1000);
+        ukuran = size + "KB";
+      }
+      else if(size < 1000){
+        ukuran = size + "Byte";
+      }
+      $("#info").html(`
+        <p>Nama File : `+name+`</p>
+        <p>Ukuran File : `+ukuran+`</p>
+        `
+        );
+      if (this.files && this.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#preview').show();
+          $('#preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(this.files[0]);
+      }
+    }
+  });
+}
+$("#img").uploadGambar();
+</script>
 </html>

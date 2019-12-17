@@ -98,42 +98,6 @@
 			  margin-top: 0%;
 			  margin-left: -45%;
 			}
-	@media screen and (max-width: 960px){
-		input.tambahproduk{
-			width: 20%;
-			height: 6%;
-		}
-		nav{
-			margin-left: 250%;
-		}
-		.cari{
-			width: 90%;
-			margin: 25px auto;
-		}
-		nav ul {
-			float: inherit;
-		}
-		nav li {
-			float:inherit;
-			margin:0;
-		}
-		nav ul li {
-			float:inherit;
-			margin:0;
-		}
-		.box{
-			margin-top: -13%;
-			margin-left: 3%;
-		}
-		nav ul a{
-			padding: 15px;
-			
-		}
-		
-		/*input{
-			width: 50%;
-			margin-left: 1%;
-		}*/
 	} 
 	</style>
 </head>
@@ -143,7 +107,7 @@
 			<div class="cari">
 				<input type="text" name="Cari" placeholder="Cari">
 			</div>
-			<li><a href="beranda.html">Beranda</li>
+			<li><a href="beranda1.html">Beranda</li>
 			<li><a href="produk.html">Produk</li>
 			<li><a href="about.html">Tentang</li>
 		</ul>
@@ -168,5 +132,42 @@
 	</div>
 	<center>
 	<br>
+
+	<div class="nextback">
+		<button id="next"> More>> ></button>
+	</div>
+	<script src="jquery3.4.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#next").click(function() {
+				$(".boxing").hide();})
+		})
+		$(document).ready(function(){
+			console.log('doc ready');
+		})
+		$.getJSON('menunext.json',function(data){
+			console.log(data);
+		})
+		$("#next").click(function(event){
+			$(".boxing").remove();
+			$.ajax({
+				url: "menunext.json",
+				type: 'GET',
+				dataType: 'json',
+			})
+			.done(function(hasil) {
+				console.log("success");
+				var gabung = "";
+				$.each(hasil, function(index, val) {
+					gabung += ` <td class="alpha"><img id="`+val.id+`" src="`+val.img+`"style="width:90px;height:90px;"><br>alpha</a></td>`;
+				})
+				$(".boxing").append(gabung);
+				$(".boxing").remove();
+			})
+			.fail(function(){
+				console.log("eror");
+			})
+		})
+	</script>
 </body>
 </html>
